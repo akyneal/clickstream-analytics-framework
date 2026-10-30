@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/src/assets/images/favicon/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/src/assets/images/favicon/favicon.svg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/src/assets/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/src/assets/images/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/src/assets/images/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example App</title>
+
+    <!--
+      Consent Mode v2 policy (platform used mostly by minors):
+      - Ad signals (ad_storage, ad_user_data, ad_personalization) are denied
+        for ALL users. No ad personalisation is performed.
+      - analytics_storage is granted by default, except for EEA/UK/CH where
+        it is denied.
+      - There is no consent banner and no gtag('consent','update',...) call,
+        so these defaults are final. GTM's "0% consent rate" container
+        warning is expected under this policy.
+    -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag('consent', 'default', {
+        ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+      });
+      gtag('consent', 'default', {
+        ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+        analytics_storage: 'granted'
+      });
+
+      window.dataLayer.push({ app: {
+        app_version: "%VITE_APP_VERSION%",
+        environment: "%VITE_APP_ENV%",
+        schema_version: "%VITE_TRACKING_SCHEMA_VERSION%"
+      }});
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i,q){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+q;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','%VITE_GTM_ID%','%VITE_GTM_ENV_QUERY%');</script>
+    <!-- End Google Tag Manager -->
+
+    <script>
+      if (localStorage.theme === "dark" || !("theme" in localStorage)) {
+        document.querySelector("html").classList.add("dark");
+        document.querySelector("html").style.colorScheme = "dark";
+      } else {
+        document.querySelector("html").classList.remove("dark");
+        document.querySelector("html").style.colorScheme = "light";
+      }
+    </script>
+  </head>
+  <body
+    class="font-inter antialiased bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
+  >
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%VITE_GTM_ID%"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      if (localStorage.getItem("sidebar-expanded") == "true") {
+        document.querySelector("body").classList.add("sidebar-expanded");
+      } else {
+        document.querySelector("body").classList.remove("sidebar-expanded");
+      }
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

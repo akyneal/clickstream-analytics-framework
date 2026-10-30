@@ -1,0 +1,25 @@
+{
+  "name": "clickstream-analytics-module",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Schema-driven clickstream collection for a React app: one tracking plan, a typed track() wrapper with privacy guards, and a GTM dataLayer contract.",
+  "scripts": {
+    "generate": "node scripts/generate-analytics-plan.mjs",
+    "lint:plan": "node scripts/lint-tracking-plan.mjs",
+    "test": "npm run generate && vitest run"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-router-dom": ">=6",
+    "web-vitals": ">=4"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.18.4",
+    "vitest": "^2.1.8",
+    "web-vitals": "^4.2.4"
+  }
+}

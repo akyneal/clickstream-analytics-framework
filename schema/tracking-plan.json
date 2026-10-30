@@ -1,0 +1,3973 @@
+{
+  "schema_version": "9.4",
+  "plan_version": "8.7",
+  "generated_from": "Tracking plan workbook (not included in this repo)",
+  "events": [
+    {
+      "name": "page_view",
+      "phase": 1,
+      "section": "Navigation and search",
+      "tier": "page",
+      "ga4_type": "Standard, manual push",
+      "fires_when": "Route change, after auth state has resolved, once per distinct path",
+      "code_location": "useLocation effect in App.jsx",
+      "parameters": [
+        "is_public_view"
+      ]
+    },
+    {
+      "name": "navigation_click",
+      "phase": 1,
+      "section": "Navigation and search",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Sidebar item clicked",
+      "code_location": "SidebarItem.tsx, ID read from shared/layouts/sidebar/config.tsx",
+      "parameters": [
+        "nav_item_id",
+        "nav_section_id",
+        "destination_template"
+      ]
+    },
+    {
+      "name": "search",
+      "phase": 1,
+      "section": "Navigation and search",
+      "tier": "interaction",
+      "ga4_type": "Recommended",
+      "fires_when": "Universal search submitted; search within a catalog or directory list (Phase 5)",
+      "code_location": "UniversalSearch.tsx submit handler; search inputs on catalog and directory list pages (Phase 5)",
+      "parameters": [
+        "search_term",
+        "search_origin"
+      ]
+    },
+    {
+      "name": "view_search_results",
+      "phase": 1,
+      "section": "Navigation and search",
+      "tier": "page",
+      "ga4_type": "Recommended",
+      "fires_when": "Search results rendered after the query resolves",
+      "code_location": "SearchResults page",
+      "parameters": [
+        "search_term",
+        "results_count"
+      ]
+    },
+    {
+      "name": "select_content",
+      "phase": 1,
+      "section": "Navigation and search",
+      "tier": "interaction",
+      "ga4_type": "Recommended",
+      "fires_when": "A search result is clicked (Phase 1); a test card is clicked in a test list (Phase 2); a person is clicked in the tutor, parent, or member directory (Phase 8)",
+      "code_location": "Search result item component; Tests.tsx, DiagnosticTest.tsx, PredictedTestsPage, QuestionBankTests test cards; community Tutors.tsx, Parents.tsx, Members.tsx (Phase 8)",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "list_position",
+        "test_type",
+        "list_name"
+      ]
+    },
+    {
+      "name": "role_select",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User confirms a role and continues",
+      "code_location": "RoleSelectionPage.tsx, handleNext",
+      "parameters": [
+        "selected_role",
+        "has_referral",
+        "has_invitation"
+      ]
+    },
+    {
+      "name": "sign_up_start",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "First field focus or Google button click on the signup form, once per page view",
+      "code_location": "SignupForm.jsx",
+      "parameters": [
+        "method"
+      ]
+    },
+    {
+      "name": "sign_up",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "outcome",
+      "ga4_type": "Recommended",
+      "fires_when": "Backend userService.register() resolves successfully",
+      "code_location": "useAuth.js: register() for email, the 404 branch of loginWithGoogle() for Google",
+      "parameters": [
+        "method",
+        "signup_source",
+        "inviter_role",
+        "requires_verification"
+      ]
+    },
+    {
+      "name": "email_verify",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "Verification succeeds",
+      "code_location": "VerifyEmailPage.jsx",
+      "parameters": [
+        "verification_mode"
+      ]
+    },
+    {
+      "name": "verification_email_resend",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User requests a new verification email",
+      "code_location": "VerifyEmailPage.jsx, handleResendVerification",
+      "parameters": []
+    },
+    {
+      "name": "login",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "outcome",
+      "ga4_type": "Recommended",
+      "fires_when": "handleAuthSuccess() completes for an existing account",
+      "code_location": "useAuth.js",
+      "parameters": [
+        "method"
+      ]
+    },
+    {
+      "name": "logout",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User logs out",
+      "code_location": "useAuth.js, logout()",
+      "parameters": []
+    },
+    {
+      "name": "auth_error",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "system",
+      "ga4_type": "Custom",
+      "fires_when": "Any auth failure reaches handleAuthError()",
+      "code_location": "useAuth.js",
+      "parameters": [
+        "auth_stage",
+        "method",
+        "error_code"
+      ]
+    },
+    {
+      "name": "password_reset_request",
+      "phase": 1,
+      "section": "Account and auth",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Reset form submitted successfully",
+      "code_location": "ResetPasswordForm.jsx",
+      "parameters": []
+    },
+    {
+      "name": "invitation_view",
+      "phase": 1,
+      "section": "Invitations, referrals and leads",
+      "tier": "page",
+      "ga4_type": "Custom",
+      "fires_when": "Invitation page finishes validating the invitation",
+      "code_location": "InvitationPage.jsx",
+      "parameters": [
+        "inviter_role",
+        "invitation_valid"
+      ]
+    },
+    {
+      "name": "invitation_accept",
+      "phase": 1,
+      "section": "Invitations, referrals and leads",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "User accepts",
+      "code_location": "InvitationPage.jsx, handleAcceptInvitation",
+      "parameters": [
+        "inviter_role",
+        "existing_account"
+      ]
+    },
+    {
+      "name": "invitation_decline",
+      "phase": 1,
+      "section": "Invitations, referrals and leads",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User declines",
+      "code_location": "InvitationPage.jsx, handleDeclineInvitation",
+      "parameters": [
+        "inviter_role"
+      ]
+    },
+    {
+      "name": "post_invite_class_select",
+      "phase": 1,
+      "section": "Invitations, referrals and leads",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User picks a class or skips after an invitation",
+      "code_location": "SelectClassPage.tsx, handleContinue and skip",
+      "parameters": [
+        "class_plan_id",
+        "skipped"
+      ]
+    },
+    {
+      "name": "share",
+      "phase": 1,
+      "section": "Invitations, referrals and leads",
+      "tier": "outcome",
+      "ga4_type": "Recommended",
+      "fires_when": "Referral invite created successfully",
+      "code_location": "ShareWithFriendModal.tsx, after createReferral",
+      "parameters": [
+        "method",
+        "content_type"
+      ]
+    },
+    {
+      "name": "generate_lead",
+      "phase": 1,
+      "section": "Invitations, referrals and leads",
+      "tier": "outcome",
+      "ga4_type": "Recommended",
+      "fires_when": "Tutor application submitted, or email captured on a public test",
+      "code_location": "TutorRequestPage.tsx; TestEmbed.tsx after captureLeadAndStart",
+      "parameters": [
+        "lead_type",
+        "test_id"
+      ]
+    },
+    {
+      "name": "sign_up_prompt_click",
+      "phase": 1,
+      "section": "Invitations, referrals and leads",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Logged-out visitor clicks Sign in or Sign up in the public content header",
+      "code_location": "PublicContentLayout.tsx",
+      "parameters": [
+        "cta_type"
+      ]
+    },
+    {
+      "name": "limit_hit",
+      "phase": 1,
+      "section": "Gates and errors",
+      "tier": "system",
+      "ga4_type": "Custom",
+      "fires_when": "Server rejects an action for a trial lock, subscription limit, or AI token limit (Phase 1); a daily AI limit error is shown (Phase 4)",
+      "code_location": "api.ts interceptor, before openTrialLock, openLimitModal, or openModal; shared/components/ui/LimitErrorDisplay.tsx on mount (Phase 4)",
+      "parameters": [
+        "limit_type",
+        "feature_type",
+        "gated_action",
+        "endpoint_template"
+      ]
+    },
+    {
+      "name": "upgrade_cta_click",
+      "phase": 1,
+      "section": "Gates and errors",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User clicks the upgrade CTA in any limit modal",
+      "code_location": "UpgradeModal.tsx (/settings/plans link), SubscriptionLimitModal.tsx, AITokenLimitModal.tsx",
+      "parameters": [
+        "limit_type",
+        "cta_destination"
+      ]
+    },
+    {
+      "name": "content_block",
+      "phase": 1,
+      "section": "Gates and errors",
+      "tier": "system",
+      "ga4_type": "Custom",
+      "fires_when": "Server rejects user content for profanity",
+      "code_location": "api.ts interceptor, profanity branch",
+      "parameters": [
+        "endpoint_template"
+      ]
+    },
+    {
+      "name": "exception",
+      "phase": 1,
+      "section": "Gates and errors",
+      "tier": "system",
+      "ga4_type": "gtag standard",
+      "fires_when": "API returns 5xx or a network error; or a render crash reaches the error boundary",
+      "code_location": "api.ts interceptor; new React error boundary around App",
+      "parameters": [
+        "description",
+        "fatal",
+        "http_status",
+        "endpoint_template"
+      ]
+    },
+    {
+      "name": "web_vitals",
+      "phase": 1,
+      "section": "Performance",
+      "tier": "system",
+      "ga4_type": "Custom",
+      "fires_when": "The web-vitals library reports a final Core Web Vitals value for the page load",
+      "code_location": "New: wrapper module using Google's web-vitals library (onLCP, onINP, onCLS), started in main.jsx",
+      "parameters": [
+        "metric_name",
+        "metric_value",
+        "metric_rating"
+      ]
+    },
+    {
+      "name": "scroll_milestone",
+      "phase": 1,
+      "section": "Navigation and search",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The user scrolls past 50 or 90 percent of a long public content page",
+      "code_location": "New: wrapper scroll observer, active only when content_group = public_content; resets on each route change",
+      "parameters": [
+        "scroll_percent"
+      ]
+    },
+    {
+      "name": "test_generate",
+      "phase": 2,
+      "section": "Test setup",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A generated test is created: question bank category test, challenge set, custom test, predicted test, or predicted question set",
+      "code_location": "question-bank/hooks/useGenerateTestFlow.tsx handleGenerateTest; CustomTestBuilder (createCustomTest); predicted-tests/components/PredictedTestsGenerator.tsx; predicted-questions/components/PredictedQuestionsGenerator.tsx",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "creation_method",
+        "question_count",
+        "difficulty",
+        "only_new_questions",
+        "category_id"
+      ]
+    },
+    {
+      "name": "test_start",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A test loads with no saved progress and no result",
+      "code_location": "New shared hook useTestSessionTracking, called from tests/pages/TestDetail.tsx, question-bank/pages/QuestionBankTestDetail.tsx, predicted-tests/pages/PredictedTestDetail.tsx, predicted-questions/pages/PredictedQuestionTestDetail.tsx; PublicTestTaking.tsx after getPublicTest",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "exam_category",
+        "total_questions",
+        "section_count"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "test_resume",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User chooses Resume in the resume dialog",
+      "code_location": "TestDetail.tsx handleResumeTest(true), and the same dialog in the other three test pages",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "answered_count",
+        "total_questions"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "test_restart",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Test progress is reset from the resume dialog or the results screen",
+      "code_location": "TestDetail.tsx handleResumeTest(false); tests/components/TestResults.tsx confirmRestart",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "restart_source"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "question_answer",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "An answer is saved successfully",
+      "code_location": "shared/hooks/useTestAnswerHandler.ts handleAnswer, after saveAnswer resolves",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "section_number",
+        "question_number",
+        "duration_sec",
+        "answer_changed",
+        "answer_format"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "test_module_start",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The module interstitial is shown at the start of a new module",
+      "code_location": "TestDetail.tsx, where setModuleInterstitial is called in handleNext",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "module_number",
+        "section_number"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "test_pause",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User confirms Pause in the pause dialog",
+      "code_location": "TestDetail.tsx handlePauseTest, and equivalents in the other test pages",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "answered_count",
+        "total_questions"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "test_complete",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "The completion API returns results",
+      "code_location": "useTestAnswerHandler.ts, after completeTest(testId) resolves (answering the last question completes the test automatically); PublicTestTaking.tsx after submitPublicTest",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "exam_category",
+        "total_questions",
+        "correct_count",
+        "score"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "test_tool_use",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A test tool is used",
+      "code_location": "shared/components/TestInteractionControls.tsx (drawing board, focus mode, scratch mode, AI hint, Ask a Tutor, question note save); shared/components/highlighting (highlighter)",
+      "parameters": [
+        "tool_name",
+        "tool_state",
+        "test_id",
+        "test_type",
+        "question_number"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "question_mark_for_review",
+      "phase": 2,
+      "section": "Test session",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A question is marked or unmarked for review",
+      "code_location": "shared/hooks/useTestInteractions.ts markQuestion / unmarkQuestion success; saved-questions/components/SavedQuestionItem.tsx removeSavedQuestion",
+      "parameters": [
+        "test_type",
+        "question_number",
+        "marked",
+        "mark_source"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "test_results_view",
+      "phase": 2,
+      "section": "Results and review",
+      "tier": "page",
+      "ga4_type": "Custom",
+      "fires_when": "The results screen renders",
+      "code_location": "tests/components/TestResults.tsx (shared by the test pages)",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "results_source",
+        "correct_count",
+        "total_questions"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "review_question_open",
+      "phase": 2,
+      "section": "Results and review",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A question's detail and explanation is opened for review",
+      "code_location": "TestResults.tsx setSelectedQuestion; my-mistakes/components/MyMistakesQuestionItem.tsx question modal; saved questions list item",
+      "parameters": [
+        "review_source",
+        "test_type",
+        "is_correct"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "mistake_dismiss",
+      "phase": 2,
+      "section": "Results and review",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A question is excluded from My Mistakes",
+      "code_location": "my-mistakes/hooks/useExcludeQuestion.ts on success",
+      "parameters": [
+        "test_type"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "study_plan_cta_click",
+      "phase": 2,
+      "section": "Results and review",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Generate study plan is clicked on the results screen",
+      "code_location": "TestResults.tsx handleGenerateStudyPlan",
+      "parameters": [
+        "test_id",
+        "test_type"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "vocab_session_start",
+      "phase": 2,
+      "section": "Vocabulary and tools",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A vocabulary card session is generated",
+      "code_location": "vocabulary/pages/VocabLauncher.tsx and VocabularyCategoryExplorer.tsx after generateRandomVocabularySession",
+      "parameters": [
+        "launch_source",
+        "card_count",
+        "category_id"
+      ]
+    },
+    {
+      "name": "vocab_session_end",
+      "phase": 2,
+      "section": "Vocabulary and tools",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "User reaches the last card, or leaves the session",
+      "code_location": "vocabulary/pages/VocabularyCards.tsx: Next on the last card, Back to Home, or unmount",
+      "parameters": [
+        "card_count",
+        "cards_viewed",
+        "completed"
+      ]
+    },
+    {
+      "name": "score_calculator_use",
+      "phase": 2,
+      "section": "Vocabulary and tools",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "First input change on the score calculator, once per page view",
+      "code_location": "score-calculator/pages (ScoreCalculator)",
+      "parameters": []
+    },
+    {
+      "name": "goal_set",
+      "phase": 3,
+      "section": "Goals and exam",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Goal score, test date, or current score is saved or cleared",
+      "code_location": "home/components/MetricsSection: SetGoalModal, SetTestDateModal, SetCurrentScoreModal, after testPrepGoalsService.update* resolves",
+      "parameters": [
+        "goal_type",
+        "score_value",
+        "days_until_test",
+        "is_cleared"
+      ]
+    },
+    {
+      "name": "exam_category_select",
+      "phase": 3,
+      "section": "Goals and exam",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The selected exam category changes",
+      "code_location": "tests/store/useTestCategoriesStore.ts setSelectedCategoryId (single point for the selector and /c/:categorySlug)",
+      "parameters": [
+        "exam_category",
+        "previous_exam_category"
+      ]
+    },
+    {
+      "name": "study_plan_wizard_step",
+      "phase": 3,
+      "section": "Study plans",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The from-scratch wizard advances to the next step",
+      "code_location": "study-plan/components/GenerateFromScratchWizard.tsx setStep",
+      "parameters": [
+        "step_number",
+        "step_name"
+      ]
+    },
+    {
+      "name": "study_plan_generate",
+      "phase": 3,
+      "section": "Study plans",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "Study plan generation succeeds",
+      "code_location": "StudyPlan.tsx handleGenerateKanbanStudyPlan (from a test result); GenerateFromScratchWizard.tsx (from scratch); StudyPlansContent.tsx generateStudyPlanFromScore (from a score report)",
+      "parameters": [
+        "plan_source",
+        "plan_weeks",
+        "test_type",
+        "study_days_count"
+      ]
+    },
+    {
+      "name": "study_plan_generate_error",
+      "phase": 3,
+      "section": "Study plans",
+      "tier": "system",
+      "ga4_type": "Custom",
+      "fires_when": "Study plan generation fails for a reason other than a usage limit",
+      "code_location": "Same three call sites, in the catch branch",
+      "parameters": [
+        "plan_source",
+        "error_code"
+      ]
+    },
+    {
+      "name": "study_plan_open",
+      "phase": 3,
+      "section": "Study plans",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "An existing, completed study plan is opened",
+      "code_location": "StudyPlan.tsx after getStudyPlan resolves with status completed",
+      "parameters": [
+        "plan_source",
+        "plan_weeks"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "study_session_start_click",
+      "phase": 3,
+      "section": "Study plans",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Start today's session is clicked",
+      "code_location": "study-plan/hooks/useStartTodaysSession.ts start(), used by home MetricsSection",
+      "parameters": [
+        "has_plan"
+      ]
+    },
+    {
+      "name": "study_plan_delete",
+      "phase": 3,
+      "section": "Study plans",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A study plan is deleted",
+      "code_location": "StudyPlansContent.tsx deleteStudyPlan success",
+      "parameters": [
+        "plan_source"
+      ]
+    },
+    {
+      "name": "task_create",
+      "phase": 3,
+      "section": "Tasks",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A task is created in a study plan or the personal task list",
+      "code_location": "StudyPlan.tsx createTask; tasks/hooks/useTasks createTask",
+      "parameters": [
+        "task_source"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "task_status_change",
+      "phase": 3,
+      "section": "Tasks",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A task's status changes",
+      "code_location": "StudyPlan.tsx updateTaskStatus (kanban drag in KanbanStudyPlan.tsx handleDragEnd); tasks/hooks/useTasks updateTask with a status change",
+      "parameters": [
+        "task_source",
+        "from_status",
+        "to_status",
+        "task_week"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "subtask_complete",
+      "phase": 3,
+      "section": "Tasks",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A subtask is checked off",
+      "code_location": "StudyPlan.tsx toggleSubtaskCompletion; tasks toggleSubtask",
+      "parameters": [
+        "task_source",
+        "subtask_type"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "subtask_link_click",
+      "phase": 3,
+      "section": "Tasks",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A study plan subtask's link into practice is clicked",
+      "code_location": "study-plan/components/KanbanTaskItem.tsx, the getSubtaskRoute link",
+      "parameters": [
+        "subtask_type",
+        "destination_template"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "task_delete",
+      "phase": 3,
+      "section": "Tasks",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A task is deleted",
+      "code_location": "StudyPlan.tsx deleteTask; tasks/hooks/useTasks deleteTask",
+      "parameters": [
+        "task_source"
+      ],
+      "suppress_in_tutor_mode": true
+    },
+    {
+      "name": "progress_report_view",
+      "phase": 3,
+      "section": "Progress and assignments",
+      "tier": "page",
+      "ga4_type": "Custom",
+      "fires_when": "The performance dashboard loads, or its student filter changes",
+      "code_location": "dashboard/pages/Dashboard.tsx on first data load and in handleStudentFilter",
+      "parameters": [
+        "viewed_scope"
+      ]
+    },
+    {
+      "name": "assignment_open",
+      "phase": 3,
+      "section": "Progress and assignments",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "An assigned test is opened from Assignments",
+      "code_location": "home/components/AssignmentsCard.tsx item link; home/pages/MyAssignments.tsx",
+      "parameters": [
+        "test_id",
+        "assignment_type",
+        "is_overdue",
+        "days_until_due"
+      ]
+    },
+    {
+      "name": "hub_card_click",
+      "phase": 3,
+      "section": "Progress and assignments",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A card on a hub page is clicked",
+      "code_location": "hub-pages/components/HubPage.tsx; IDs from hub-pages/config/hub-pages.config",
+      "parameters": [
+        "hub_id",
+        "card_id",
+        "destination_template"
+      ]
+    },
+    {
+      "name": "home_cta_click",
+      "phase": 3,
+      "section": "Home",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A home banner or card call to action is clicked",
+      "code_location": "home/components: ContinuePracticeTestBanner, ScoreReportBanner, StudyPlanDueCard, AssignmentsCard (view all), MetricsSection GoalButtons, GettingStartedSection",
+      "parameters": [
+        "cta_id",
+        "destination_template"
+      ]
+    },
+    {
+      "name": "view_promotion",
+      "phase": 3,
+      "section": "Home",
+      "tier": "page",
+      "ga4_type": "Recommended",
+      "fires_when": "The promo banner modal or Book a Demo banner is shown",
+      "code_location": "home/components/PromoBanner/PromoBannerModal.tsx on open; BookDemoBanner.tsx on render",
+      "parameters": [
+        "promotion_id",
+        "promotion_name",
+        "creative_slot"
+      ]
+    },
+    {
+      "name": "select_promotion",
+      "phase": 3,
+      "section": "Home",
+      "tier": "interaction",
+      "ga4_type": "Recommended",
+      "fires_when": "The promo button or Book a Demo is clicked",
+      "code_location": "PromoBannerModal.tsx button; BookDemoBanner.tsx handleBookDemo",
+      "parameters": [
+        "promotion_id",
+        "promotion_name",
+        "creative_slot"
+      ]
+    },
+    {
+      "name": "promotion_dismiss",
+      "phase": 3,
+      "section": "Home",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The promo modal is closed or Book a Demo is dismissed",
+      "code_location": "PromoBannerModal.tsx close; BookDemoBanner.tsx handleDismiss",
+      "parameters": [
+        "promotion_id",
+        "creative_slot"
+      ]
+    },
+    {
+      "name": "ai_request",
+      "phase": 4,
+      "section": "AI requests",
+      "tier": "system",
+      "ga4_type": "Custom",
+      "fires_when": "Any AI generation call completes, successfully or not",
+      "code_location": "New helper trackAiCall() wrapping every AI call: useBubbleTutor sendMessage; shared/services/question-insight.service.ts; shared/hooks/useQuestionTutor.ts; essayIdeas.service generate; essayEditor.service analyze; recommendation-letter.service generate; course-plans.service generateOutlineFromFile and chatCoursePlan; question-bank generateAIQuestion and generateQuestionsFromPdf; study plan and predicted test/question generation",
+      "parameters": [
+        "ai_feature",
+        "ai_outcome",
+        "latency_ms",
+        "error_code",
+        "input_chars",
+        "output_chars",
+        "output_items",
+        "ai_result_score",
+        "turn_number",
+        "ai_request_id"
+      ]
+    },
+    {
+      "name": "ai_output_copy",
+      "phase": 4,
+      "section": "Writing tools",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Generated output is copied to the clipboard",
+      "code_location": "recommendation-letter/components/LetterDisplay.tsx copy handler; any copy control added to other AI features",
+      "parameters": [
+        "ai_feature"
+      ]
+    },
+    {
+      "name": "ai_history_open",
+      "phase": 4,
+      "section": "Writing tools",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A previously generated result is opened from a list",
+      "code_location": "EssayIdeasListPage to EssayIdeasDetailPage; EssayEditorListPage to EssayEditorDetailPage; recommendation letter list",
+      "parameters": [
+        "ai_feature",
+        "result_age_days"
+      ]
+    },
+    {
+      "name": "view_item_list",
+      "phase": 5,
+      "section": "Catalog browsing",
+      "tier": "page",
+      "ga4_type": "Recommended",
+      "fires_when": "A list of purchasable catalog items (courses, classes, events, resources) renders, or its filter changes; the tutor plans list renders (Phase 6)",
+      "code_location": "courses/pages/CoursesGrid.tsx, MyCoursesPage.tsx; class-plans ClassesHubPage; calendar/pages/CalendarPage.tsx; resources/pages/ResourcesPage.tsx; home FeaturedClassesSection, EventSection, ComingUp; settings/components/PlansPanel.tsx (Phase 6)",
+      "parameters": [
+        "item_list_name",
+        "items"
+      ]
+    },
+    {
+      "name": "select_item",
+      "phase": 5,
+      "section": "Catalog browsing",
+      "tier": "interaction",
+      "ga4_type": "Recommended",
+      "fires_when": "A catalog item card is clicked in a list",
+      "code_location": "CourseCard.tsx; class card in ClassesHubPage; calendar EventCard.tsx; resource card; home featured and coming-up items",
+      "parameters": [
+        "item_list_name",
+        "items"
+      ]
+    },
+    {
+      "name": "view_item",
+      "phase": 5,
+      "section": "Catalog browsing",
+      "tier": "page",
+      "ga4_type": "Recommended",
+      "fires_when": "A catalog item detail page loads",
+      "code_location": "courses/pages/CourseDetailsPage.tsx; class-plans/pages/ClassDetailPage.tsx; calendar/pages/EventDetailsPage.tsx; resources/pages/ResourceDetailPage.tsx",
+      "parameters": [
+        "items"
+      ]
+    },
+    {
+      "name": "catalog_filter_apply",
+      "phase": 5,
+      "section": "Catalog browsing",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A category, date, price, or other filter is applied to a catalog or directory list",
+      "code_location": "Filter controls on CoursesGrid, ClassesHubPage, CalendarPage, ResourcesPage, CollegeList, ScholarshipList, InternshipList, ApplicantProfileList, TutorialCategoryExplorer",
+      "parameters": [
+        "content_type",
+        "filter_type"
+      ]
+    },
+    {
+      "name": "video_start",
+      "phase": 5,
+      "section": "Videos and tutorials",
+      "tier": "interaction",
+      "ga4_type": "Standard",
+      "fires_when": "A video starts playing for the first time in a view",
+      "code_location": "tutorial-bank/components/VideoPlayer.tsx; courses/components/player/VideoPlayer.tsx; class recordings",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "video_provider",
+        "video_duration_sec"
+      ]
+    },
+    {
+      "name": "video_progress",
+      "phase": 5,
+      "section": "Videos and tutorials",
+      "tier": "interaction",
+      "ga4_type": "Standard",
+      "fires_when": "Playback passes 25, 50, or 75 percent",
+      "code_location": "Same player components",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "video_provider",
+        "video_percent",
+        "video_duration_sec"
+      ]
+    },
+    {
+      "name": "video_complete",
+      "phase": 5,
+      "section": "Videos and tutorials",
+      "tier": "outcome",
+      "ga4_type": "Standard",
+      "fires_when": "Playback reaches the end",
+      "code_location": "Same player components",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "video_provider",
+        "video_duration_sec"
+      ]
+    },
+    {
+      "name": "tutorial_question_answer",
+      "phase": 5,
+      "section": "Videos and tutorials",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The check-your-understanding question after a tutorial is submitted",
+      "code_location": "tutorial-bank/pages/TutorialBankDetail.tsx handleSubmitAnswer",
+      "parameters": [
+        "content_id",
+        "is_correct"
+      ]
+    },
+    {
+      "name": "tutorial_category_complete",
+      "phase": 5,
+      "section": "Videos and tutorials",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "The last tutorial in a category is finished",
+      "code_location": "TutorialBankDetail.tsx handleContinue, when there is no next tutorial",
+      "parameters": [
+        "category_id"
+      ]
+    },
+    {
+      "name": "course_lesson_complete",
+      "phase": 5,
+      "section": "Courses and classes",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A course lesson is marked complete",
+      "code_location": "courses/pages/CoursePlayerPage.tsx handleLessonComplete, after markLessonComplete resolves",
+      "parameters": [
+        "content_id",
+        "lesson_number",
+        "course_progress_pct"
+      ]
+    },
+    {
+      "name": "course_complete",
+      "phase": 5,
+      "section": "Courses and classes",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "Course progress reaches 100 percent",
+      "code_location": "CoursePlayerPage.tsx, when markLessonComplete returns progress 100",
+      "parameters": [
+        "content_id"
+      ]
+    },
+    {
+      "name": "course_review_submit",
+      "phase": 5,
+      "section": "Courses and classes",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A course review is created or updated",
+      "code_location": "CoursePlayerPage.tsx handleSubmitReview (from CourseCompletionSummary)",
+      "parameters": [
+        "content_id",
+        "rating",
+        "is_update"
+      ]
+    },
+    {
+      "name": "live_session_join",
+      "phase": 5,
+      "section": "Courses and classes",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "Join is clicked for a live class or event",
+      "code_location": "class-plans/pages/ClassDetailPage.tsx Join live class (meetingUrl); calendar/pages/EventDetailsPage.tsx event link",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "minutes_to_start"
+      ]
+    },
+    {
+      "name": "class_material_open",
+      "phase": 5,
+      "section": "Courses and classes",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A class recording or material, or a resource material, is opened",
+      "code_location": "class-plans materials and recordings; resources/components/ResourceMaterialItem.tsx window.open",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "material_type"
+      ]
+    },
+    {
+      "name": "event_attend_toggle",
+      "phase": 5,
+      "section": "Events",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Attending is turned on or off for an event",
+      "code_location": "calendar/pages/EventDetailsPage.tsx and components/EventCard.tsx handleToggleAttending",
+      "parameters": [
+        "content_id",
+        "attending"
+      ]
+    },
+    {
+      "name": "content_favorite",
+      "phase": 5,
+      "section": "Events",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "An event is favorited or unfavorited; a college, scholarship, internship, applicant profile, essay idea, or essay analysis is saved or unsaved (Phase 6)",
+      "code_location": "EventDetailsPage.tsx and EventCard.tsx handleToggleFavorite; shared/components/ui/WishlistButton.tsx via useWishlistCheck (Phase 6)",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "favorited"
+      ]
+    },
+    {
+      "name": "event_invite_send",
+      "phase": 5,
+      "section": "Events",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A user invites someone to an event",
+      "code_location": "EventDetailsPage.tsx handleInvite, after inviteToEvent resolves",
+      "parameters": [
+        "content_id"
+      ]
+    },
+    {
+      "name": "content_view",
+      "phase": 5,
+      "section": "College and career",
+      "tier": "page",
+      "ga4_type": "Custom",
+      "fires_when": "A detail page for non-catalog content loads: tutorial, college, scholarship, internship, applicant profile; a user profile loads (Phase 8)",
+      "code_location": "TutorialBankDetail.tsx; colleges/pages/CollegeDetail.tsx; scholarships/pages/ScholarshipDetail.tsx; internships/pages/InternshipDetail.tsx; ApplicantProfileDetail; community/pages/UserProfile.tsx (Phase 8)",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "profile_role"
+      ]
+    },
+    {
+      "name": "outbound_link_click",
+      "phase": 5,
+      "section": "College and career",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A college, scholarship, or internship website link is opened",
+      "code_location": "CollegeDetail.tsx, ScholarshipDetail.tsx, InternshipDetail.tsx window.open",
+      "parameters": [
+        "content_type",
+        "content_id",
+        "link_type"
+      ]
+    },
+    {
+      "name": "add_to_cart",
+      "phase": 6,
+      "section": "Cart",
+      "tier": "interaction",
+      "ga4_type": "Recommended",
+      "fires_when": "A course is added to the cart",
+      "code_location": "courses/pages/CourseDetailsPage.tsx, where useCartStore addItem is called",
+      "parameters": [
+        "items",
+        "value",
+        "currency"
+      ]
+    },
+    {
+      "name": "remove_from_cart",
+      "phase": 6,
+      "section": "Cart",
+      "tier": "interaction",
+      "ga4_type": "Recommended",
+      "fires_when": "A course is removed from the cart",
+      "code_location": "courses/components/cart/CartItemsList.tsx, useCartStore removeItem",
+      "parameters": [
+        "items",
+        "value",
+        "currency"
+      ]
+    },
+    {
+      "name": "view_cart",
+      "phase": 6,
+      "section": "Cart",
+      "tier": "page",
+      "ga4_type": "Recommended",
+      "fires_when": "The cart review page loads with items",
+      "code_location": "courses/pages/CartReview.tsx",
+      "parameters": [
+        "items",
+        "value",
+        "currency"
+      ]
+    },
+    {
+      "name": "begin_checkout",
+      "phase": 6,
+      "section": "Checkout and revenue",
+      "tier": "outcome",
+      "ga4_type": "Recommended",
+      "fires_when": "A checkout session is requested, just before the redirect to Stripe; a tutor session booking is confirmed (Phase 7)",
+      "code_location": "CartReview.tsx handleCheckout (courses); ClassDetailPage.tsx handleJoin and community ProfileCard.tsx (class subscription); EventDetailsPage.tsx handlePayment (event); ResourceDetailPage.tsx handlePayment (resource); settings PlansPanel.tsx handleSelectPlan and handleUpgradeMonthlyToYearly (tutor plan); DonationPanel.tsx handleSubmit (donation); tutorSessions/components/BookSessionModal.tsx handleBookSession (tutor session, Phase 7)",
+      "parameters": [
+        "items",
+        "value",
+        "currency",
+        "coupon",
+        "checkout_type"
+      ]
+    },
+    {
+      "name": "checkout_session_error",
+      "phase": 6,
+      "section": "Checkout and revenue",
+      "tier": "system",
+      "ga4_type": "Custom",
+      "fires_when": "Creating a checkout session fails",
+      "code_location": "Catch branches at the six begin_checkout call sites; BookSessionModal catch branch (Phase 7)",
+      "parameters": [
+        "checkout_type",
+        "error_code"
+      ]
+    },
+    {
+      "name": "checkout_return",
+      "phase": 6,
+      "section": "Checkout and revenue",
+      "tier": "page",
+      "ga4_type": "Custom",
+      "fires_when": "The user lands on a payment success or cancel page",
+      "code_location": "CoursePaymentSuccess.tsx, CoursePaymentCancel.tsx; settings SubscriptionSuccessPage, SubscriptionCancelPage; DonationSuccessPage, DonationCancelPage; tutorSessions SessionSuccessModal and SessionFailedModal (Phase 7)",
+      "parameters": [
+        "checkout_type",
+        "return_status"
+      ]
+    },
+    {
+      "name": "purchase",
+      "phase": 6,
+      "section": "Checkout and revenue",
+      "tier": "outcome",
+      "ga4_type": "Recommended (server-side)",
+      "fires_when": "Stripe confirms payment",
+      "code_location": "Backend: Stripe webhook checkout.session.completed sends the event to GA4 via Measurement Protocol (P6-D2)",
+      "parameters": [
+        "transaction_id",
+        "items",
+        "value",
+        "currency",
+        "coupon",
+        "checkout_type"
+      ],
+      "server_only": true
+    },
+    {
+      "name": "refund",
+      "phase": 6,
+      "section": "Checkout and revenue",
+      "tier": "outcome",
+      "ga4_type": "Recommended (server-side)",
+      "fires_when": "Stripe records a refund",
+      "code_location": "Backend: Stripe webhook charge.refunded via Measurement Protocol",
+      "parameters": [
+        "transaction_id",
+        "value",
+        "currency",
+        "items"
+      ],
+      "server_only": true
+    },
+    {
+      "name": "course_enroll",
+      "phase": 6,
+      "section": "Checkout and revenue",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "Free courses are claimed from the cart",
+      "code_location": "CartReview.tsx after claimFreeCourses resolves",
+      "parameters": [
+        "items"
+      ]
+    },
+    {
+      "name": "coupon_apply",
+      "phase": 6,
+      "section": "Subscriptions",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A coupon is applied on the tutor plans page",
+      "code_location": "settings/components/PlansPanel.tsx handleApplyCoupon, on the API response",
+      "parameters": [
+        "coupon",
+        "coupon_result",
+        "discount_type"
+      ]
+    },
+    {
+      "name": "subscription_change",
+      "phase": 6,
+      "section": "Subscriptions",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A subscription change that does not go through checkout is confirmed",
+      "code_location": "PlansPanel.tsx and the settings subscription-change confirm pages: cancel at period end, downgrade to free, yearly to monthly, auto-renewal off and on, time-limited coupon activation; community ProfileCard.tsx cancelSubscription (class)",
+      "parameters": [
+        "subscription_type",
+        "change_type",
+        "from_plan",
+        "to_plan"
+      ]
+    },
+    {
+      "name": "donation_open",
+      "phase": 6,
+      "section": "Donations",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The donation panel is opened",
+      "code_location": "components/DonationModal.tsx on open, from the header",
+      "parameters": [
+        "entry_point"
+      ]
+    },
+    {
+      "name": "student_work_view",
+      "phase": 7,
+      "section": "Students and assignments",
+      "tier": "page",
+      "ga4_type": "Custom",
+      "fires_when": "A tutor opens a student's test, mistakes, or study plan in tutor mode",
+      "code_location": "The wrapper's tutor-mode rule (P2-W2, P3-W2): on TestDetail with studentId, My Mistakes with mode=tutor, and StudyPlan with mode; entered from TestsContent.tsx, CategoryTestsModule.tsx, MyMistakesContent.tsx",
+      "parameters": [
+        "work_type",
+        "test_type"
+      ]
+    },
+    {
+      "name": "student_plan_edit",
+      "phase": 7,
+      "section": "Students and assignments",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A tutor changes a student's study plan",
+      "code_location": "StudyPlan.tsx task and subtask handlers when the URL has mode (tutor editing); the plan's editedByTutor flag",
+      "parameters": [
+        "edit_type"
+      ]
+    },
+    {
+      "name": "test_assign",
+      "phase": 7,
+      "section": "Students and assignments",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A test is assigned to a class or to selected students",
+      "code_location": "question-bank/components/AssignTestModal.tsx through useQuestionBankTests assignTest; tests/components/TestsContent.tsx assignFn",
+      "parameters": [
+        "test_id",
+        "test_type",
+        "assign_target",
+        "assigned_count",
+        "has_due_date"
+      ]
+    },
+    {
+      "name": "invitation_send",
+      "phase": 7,
+      "section": "Invitations and outreach",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "An invitation is created or resent",
+      "code_location": "settings/hooks/useTutorInvitations.ts, useStudentInvitations.ts, useParentStudentInvitation.ts: create and resend, on success",
+      "parameters": [
+        "invitee_role",
+        "is_resend"
+      ]
+    },
+    {
+      "name": "invitation_cancel",
+      "phase": 7,
+      "section": "Invitations and outreach",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A pending invitation is deleted",
+      "code_location": "The same three hooks: delete, on success",
+      "parameters": [
+        "invitee_role"
+      ]
+    },
+    {
+      "name": "tutor_email_send",
+      "phase": 7,
+      "section": "Invitations and outreach",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A tutor sends a segment email",
+      "code_location": "email/pages/EmailCompose.tsx after sendSegmentEmail resolves",
+      "parameters": [
+        "email_segment",
+        "recipient_count",
+        "template_id"
+      ]
+    },
+    {
+      "name": "email_unsubscribe",
+      "phase": 7,
+      "section": "Invitations and outreach",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A recipient unsubscribes from tutor emails",
+      "code_location": "email/pages/Unsubscribe.tsx on success",
+      "parameters": []
+    },
+    {
+      "name": "content_create",
+      "phase": 7,
+      "section": "Content authoring",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A tutor or admin creates content",
+      "code_location": "tests: TestProcessing PDF processing, generateTest, saveTest on a new test; question bank my-bank: create, JSON import, AI and PDF generation; tutorial-bank: TutorialVideoUploader save; courses: createCourse; class-plans: create; resources: createResource; calendar: createEvent; course-plans: save",
+      "parameters": [
+        "content_type",
+        "creation_method"
+      ]
+    },
+    {
+      "name": "content_update",
+      "phase": 7,
+      "section": "Content authoring",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Edits to existing content are saved",
+      "code_location": "Save handlers in the same editors (TestEditor, QuestionBankItemEditor, course editor, class plan, resource, event, tutorial)",
+      "parameters": [
+        "content_type"
+      ]
+    },
+    {
+      "name": "content_publish",
+      "phase": 7,
+      "section": "Content authoring",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "Content is published or unpublished",
+      "code_location": "publishQuestionBankItem / unpublishQuestionBankItem; publishTutorialBankItem; course and test status changes",
+      "parameters": [
+        "content_type",
+        "published"
+      ]
+    },
+    {
+      "name": "content_delete",
+      "phase": 7,
+      "section": "Content authoring",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "Content is deleted",
+      "code_location": "Delete handlers in the same features",
+      "parameters": [
+        "content_type"
+      ]
+    },
+    {
+      "name": "class_material_add",
+      "phase": 7,
+      "section": "Content authoring",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A recording or material is added to a class",
+      "code_location": "class-plans service addRecording and addMaterial, on success",
+      "parameters": [
+        "material_type"
+      ]
+    },
+    {
+      "name": "session_note_create",
+      "phase": 7,
+      "section": "Tutor operations",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A session note is saved",
+      "code_location": "session-notes/hooks/useSessionNotes.ts create; opened from MyStudentsTable Add note",
+      "parameters": []
+    },
+    {
+      "name": "session_note_share",
+      "phase": 7,
+      "section": "Tutor operations",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A session note is shared with or unshared from the student",
+      "code_location": "useSessionNotes share and unshare",
+      "parameters": [
+        "shared"
+      ]
+    },
+    {
+      "name": "availability_update",
+      "phase": 7,
+      "section": "Tutor operations",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A tutor saves availability settings",
+      "code_location": "settings AvailabilitySettings, after the availability-config update resolves",
+      "parameters": [
+        "days_available",
+        "hours_per_week"
+      ]
+    },
+    {
+      "name": "verification_call_book_click",
+      "phase": 7,
+      "section": "Tutor operations",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A tutor opens the booking link for the verification call",
+      "code_location": "tutor/components/TutorVerificationGate.tsx booking link",
+      "parameters": []
+    },
+    {
+      "name": "tutor_insights_view",
+      "phase": 7,
+      "section": "Tutor operations",
+      "tier": "page",
+      "ga4_type": "Custom",
+      "fires_when": "A tutor opens one of their analytics views; a tutor opens their contacts list (Phase 8)",
+      "code_location": "TutorTubeAnalytics page; payments SellsDashboard; MyStudentsContent metrics; community/pages/TutorContacts.tsx (Phase 8)",
+      "parameters": [
+        "insight_type"
+      ]
+    },
+    {
+      "name": "session_booking_open",
+      "phase": 7,
+      "section": "Session booking",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A student or parent opens the session booking modal on a tutor's profile",
+      "code_location": "community/components/ProfileCard.tsx, where BookSessionModal opens",
+      "parameters": []
+    },
+    {
+      "name": "session_slot_select",
+      "phase": 7,
+      "section": "Session booking",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A date and hour are chosen in the booking modal",
+      "code_location": "tutorSessions/components/BookSessionModal.tsx handleHourSelect",
+      "parameters": [
+        "days_ahead"
+      ]
+    },
+    {
+      "name": "post_create",
+      "phase": 8,
+      "section": "Feed and spaces",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A post is published to the feed, a space, or a tutor community",
+      "code_location": "community services createPost (Feed, TutorCommunityTab); spaces createSpace (SpacePost)",
+      "parameters": [
+        "surface",
+        "post_type",
+        "has_media"
+      ]
+    },
+    {
+      "name": "post_react",
+      "phase": 8,
+      "section": "Feed and spaces",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A post is liked or upvoted, or the reaction is removed",
+      "code_location": "community toggleLike; spaces toggleUpvote",
+      "parameters": [
+        "surface",
+        "reaction_type",
+        "active"
+      ]
+    },
+    {
+      "name": "post_share",
+      "phase": 8,
+      "section": "Feed and spaces",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A post is shared",
+      "code_location": "community sharePost, on success",
+      "parameters": [
+        "surface"
+      ]
+    },
+    {
+      "name": "poll_vote",
+      "phase": 8,
+      "section": "Feed and spaces",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A vote is cast on a poll post",
+      "code_location": "community voteOnPoll, on success",
+      "parameters": [
+        "surface"
+      ]
+    },
+    {
+      "name": "comment_post",
+      "phase": 8,
+      "section": "Feed and spaces",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A comment is posted on a post, a space, or an event",
+      "code_location": "community addComment; spaces addComment; calendar EventCommentForm (replaces event_comment_post)",
+      "parameters": [
+        "content_type",
+        "surface"
+      ]
+    },
+    {
+      "name": "comment_upvote",
+      "phase": 8,
+      "section": "Feed and spaces",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A comment is upvoted, or the upvote is removed",
+      "code_location": "spaces toggleCommentUpvote; calendar toggleCommentUpvote",
+      "parameters": [
+        "content_type",
+        "active"
+      ]
+    },
+    {
+      "name": "space_follow",
+      "phase": 8,
+      "section": "Feed and spaces",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A space is followed or unfollowed",
+      "code_location": "spaces toggleFollow, on success",
+      "parameters": [
+        "followed"
+      ]
+    },
+    {
+      "name": "conversation_start",
+      "phase": 8,
+      "section": "Messaging",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A new direct or group conversation is created",
+      "code_location": "messages/hooks/useConversationsData.ts (setDoc on a new conversation); messages/components/CreateGroupModal.tsx via group.service createGroup",
+      "parameters": [
+        "conversation_type",
+        "entry_point",
+        "member_count"
+      ]
+    },
+    {
+      "name": "message_send",
+      "phase": 8,
+      "section": "Messaging",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "A message is sent",
+      "code_location": "messages/hooks/useMessages.ts sendMessage, used by MessageInput and ChitChatWindow",
+      "parameters": [
+        "conversation_type",
+        "message_type",
+        "surface"
+      ]
+    },
+    {
+      "name": "notifications_dropdown_open",
+      "phase": 8,
+      "section": "Notifications",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The notifications dropdown is opened",
+      "code_location": "shared/components/notifications/NotificationsDropdown.tsx handleDropdownOpen",
+      "parameters": [
+        "unread_count"
+      ]
+    },
+    {
+      "name": "notification_open",
+      "phase": 8,
+      "section": "Notifications",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A notification is clicked through",
+      "code_location": "shared/components/notifications/NotificationItem.tsx handleClick",
+      "parameters": [
+        "notification_type"
+      ]
+    },
+    {
+      "name": "notification_pref_change",
+      "phase": 8,
+      "section": "Notifications",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A notification setting is changed",
+      "code_location": "Settings NotificationsPage toggles, on save",
+      "parameters": [
+        "notification_type",
+        "channel",
+        "enabled"
+      ]
+    },
+    {
+      "name": "support_chat_open",
+      "phase": 8,
+      "section": "Support and feedback",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "The support chat is opened",
+      "code_location": "support/components/SupportHeaderButton.tsx and SupportChatBubble.tsx",
+      "parameters": []
+    },
+    {
+      "name": "support_message_send",
+      "phase": 8,
+      "section": "Support and feedback",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A message is sent to support",
+      "code_location": "support/components/SupportMessageInput.tsx via useSupportTickets, on success",
+      "parameters": [
+        "is_first_message"
+      ]
+    },
+    {
+      "name": "faq_open",
+      "phase": 8,
+      "section": "Support and feedback",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "An FAQ entry is expanded",
+      "code_location": "faqs/pages/FaqsPage.tsx and settings Faqs item toggle",
+      "parameters": [
+        "faq_id"
+      ]
+    },
+    {
+      "name": "feedback_submit",
+      "phase": 8,
+      "section": "Support and feedback",
+      "tier": "outcome",
+      "ga4_type": "Custom",
+      "fires_when": "Product feedback is submitted",
+      "code_location": "components/FeedbackPanel.tsx handleSubmit (Help menu), after POST /feedback resolves",
+      "parameters": [
+        "rating"
+      ]
+    },
+    {
+      "name": "profile_update",
+      "phase": 8,
+      "section": "Profiles and connections",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A user saves changes to their own profile",
+      "code_location": "community/pages/MyProfile.tsx save handlers",
+      "parameters": [
+        "profile_section"
+      ]
+    },
+    {
+      "name": "connection_request_send",
+      "phase": 8,
+      "section": "Profiles and connections",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A connection request is sent",
+      "code_location": "shared/hooks/useConnection.ts sendRequest, on success",
+      "parameters": [
+        "profile_role"
+      ]
+    },
+    {
+      "name": "connection_respond",
+      "phase": 8,
+      "section": "Profiles and connections",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A connection request is accepted or rejected",
+      "code_location": "useConnection.ts approveRequest and rejectRequest",
+      "parameters": [
+        "accepted"
+      ]
+    },
+    {
+      "name": "connection_remove",
+      "phase": 8,
+      "section": "Profiles and connections",
+      "tier": "interaction",
+      "ga4_type": "Custom",
+      "fires_when": "A connection is removed",
+      "code_location": "useConnection.ts removeConnection",
+      "parameters": []
+    }
+  ],
+  "deprecated_events": [
+    "event_comment_post",
+    "ai_tutor_conversation_start",
+    "ai_tutor_conversation_open",
+    "ai_tutor_conversation_delete",
+    "ai_tutor_open"
+  ],
+  "parameters": {
+    "accepted": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when accepted",
+      "used_by": [
+        "connection_respond"
+      ],
+      "phase_added": 8
+    },
+    "active": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when the reaction or upvote is added, false when removed",
+      "used_by": [
+        "post_react",
+        "comment_upvote"
+      ],
+      "phase_added": 8
+    },
+    "ai_feature": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "question_hint, question_tutor_chat, essay_ideas, essay_feedback, recommendation_letter, course_plan_outline, course_plan_chat, ai_question_generate, pdf_question_generate, study_plan, predicted_test, predicted_question",
+      "used_by": [
+        "ai_request",
+        "ai_output_copy",
+        "ai_history_open"
+      ],
+      "phase_added": 4,
+      "notes": "Extend this list for new AI features; do not create new request events."
+    },
+    "ai_outcome": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "success, error, policy_blocked, limit_hit, empty",
+      "used_by": [
+        "ai_request"
+      ],
+      "phase_added": 4
+    },
+    "ai_request_id": {
+      "type": "string",
+      "register": "No (ID)",
+      "allowed_values": "Request id returned by the backend (P4-D2)",
+      "used_by": [
+        "ai_request"
+      ],
+      "phase_added": 4,
+      "notes": "Join key to the backend AI usage log for tokens, model, and cost."
+    },
+    "ai_result_score": {
+      "type": "number",
+      "register": "Metric",
+      "allowed_values": "Score returned by the feature, e.g. essay feedback overall score",
+      "used_by": [
+        "ai_request"
+      ],
+      "phase_added": 4,
+      "notes": "Only for features that return a score."
+    },
+    "answer_changed": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when the question already had an answer",
+      "used_by": [
+        "question_answer"
+      ],
+      "phase_added": 2
+    },
+    "answer_format": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "choice, image",
+      "used_by": [
+        "question_answer"
+      ],
+      "phase_added": 2,
+      "notes": "image when a photo answer is attached."
+    },
+    "answered_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Questions answered so far in this attempt",
+      "used_by": [
+        "test_resume",
+        "test_pause"
+      ],
+      "phase_added": 2
+    },
+    "assign_target": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "class, students",
+      "used_by": [
+        "test_assign"
+      ],
+      "phase_added": 7
+    },
+    "assigned_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Students the test was assigned to",
+      "used_by": [
+        "test_assign"
+      ],
+      "phase_added": 7
+    },
+    "assignment_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "practice_test, question_bank_test",
+      "used_by": [
+        "assignment_open"
+      ],
+      "phase_added": 3
+    },
+    "attending": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when turned on",
+      "used_by": [
+        "event_attend_toggle"
+      ],
+      "phase_added": 5
+    },
+    "auth_stage": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "sign_up, login, verify, reset",
+      "used_by": [
+        "auth_error"
+      ],
+      "phase_added": 1,
+      "notes": "Splits auth failures by where they happen."
+    },
+    "card_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Cards in the vocabulary session",
+      "used_by": [
+        "vocab_session_start",
+        "vocab_session_end"
+      ],
+      "phase_added": 2
+    },
+    "card_id": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Card id from the hub config",
+      "used_by": [
+        "hub_card_click"
+      ],
+      "phase_added": 3
+    },
+    "cards_viewed": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Cards viewed before the session ended",
+      "used_by": [
+        "vocab_session_end"
+      ],
+      "phase_added": 2,
+      "notes": "A floor; tab close is not captured."
+    },
+    "category_id": {
+      "type": "string",
+      "register": "No (ID)",
+      "allowed_values": "Internal question category ID",
+      "used_by": [
+        "test_generate",
+        "vocab_session_start",
+        "tutorial_category_complete"
+      ],
+      "phase_added": 2,
+      "notes": "Warehouse only."
+    },
+    "change_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "cancel_at_period_end, downgrade_free, downgrade_monthly, auto_renew_off, auto_renew_on, time_limited_activate, class_cancel",
+      "used_by": [
+        "subscription_change"
+      ],
+      "phase_added": 6
+    },
+    "channel": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "in_app, email, push",
+      "used_by": [
+        "notification_pref_change"
+      ],
+      "phase_added": 8
+    },
+    "checkout_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "course_cart, class_subscription, event, resource, tutor_plan, donation; tutor_session (Phase 7)",
+      "used_by": [
+        "begin_checkout",
+        "checkout_session_error",
+        "checkout_return",
+        "purchase"
+      ],
+      "phase_added": 6,
+      "notes": "Splits every revenue report by path."
+    },
+    "class_plan_id": {
+      "type": "string",
+      "register": "No (ID)",
+      "allowed_values": "Backend class plan ID",
+      "used_by": [
+        "post_invite_class_select"
+      ],
+      "phase_added": 1,
+      "notes": "Warehouse only."
+    },
+    "completed": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when the last card was reached",
+      "used_by": [
+        "vocab_session_end"
+      ],
+      "phase_added": 2
+    },
+    "content_id": {
+      "type": "string",
+      "register": "No (ID)",
+      "allowed_values": "Backend ID of the selected item",
+      "used_by": [
+        "select_content",
+        "video_start",
+        "video_progress",
+        "video_complete",
+        "tutorial_question_answer",
+        "course_lesson_complete",
+        "course_complete",
+        "course_review_submit",
+        "live_session_join",
+        "class_material_open",
+        "event_attend_toggle",
+        "content_favorite",
+        "event_invite_send",
+        "event_comment_post",
+        "content_view",
+        "outbound_link_click"
+      ],
+      "phase_added": 1,
+      "notes": "Warehouse only. High-cardinality dimensions collapse into (other) in GA4 reports."
+    },
+    "content_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Search result type (e.g. test, tutorial, course); referral on share; test on test lists (Phase 2); course, class, event, resource, tutorial, college, scholarship, internship, applicant_profile, course_lesson, class_recording (Phase 5); essay_idea, essay_analysis (Phase 6); question, course_plan for authoring (Phase 7); user_profile, post, space (Phase 8)",
+      "used_by": [
+        "select_content",
+        "share",
+        "catalog_filter_apply",
+        "video_start",
+        "video_progress",
+        "video_complete",
+        "live_session_join",
+        "class_material_open",
+        "content_favorite",
+        "content_view",
+        "outbound_link_click",
+        "content_create",
+        "content_update",
+        "content_publish",
+        "content_delete",
+        "comment_post",
+        "comment_upvote"
+      ],
+      "phase_added": 1,
+      "notes": "Shared vocabulary across search, content, and sharing events."
+    },
+    "conversation_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "direct, group",
+      "used_by": [
+        "conversation_start",
+        "message_send"
+      ],
+      "phase_added": 8
+    },
+    "correct_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Correct answers from the API result",
+      "used_by": [
+        "test_complete",
+        "test_results_view"
+      ],
+      "phase_added": 2
+    },
+    "coupon": {
+      "type": "string",
+      "register": "Built-in",
+      "allowed_values": "Coupon code",
+      "used_by": [
+        "begin_checkout",
+        "purchase",
+        "coupon_apply"
+      ],
+      "phase_added": 6,
+      "notes": "GA4 ecommerce field."
+    },
+    "coupon_result": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "valid, invalid, expired",
+      "used_by": [
+        "coupon_apply"
+      ],
+      "phase_added": 6
+    },
+    "course_progress_pct": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Course progress percent after the lesson",
+      "used_by": [
+        "course_lesson_complete"
+      ],
+      "phase_added": 5
+    },
+    "creation_method": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "category, challenge, custom_builder, ai_predicted (Phase 2); manual, pdf_import, json_import, ai_generate, video_upload, video_link (Phase 7)",
+      "used_by": [
+        "test_generate",
+        "content_create"
+      ],
+      "phase_added": 2,
+      "notes": "How a generated test was built."
+    },
+    "creative_slot": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "home_promo_modal, book_demo_banner",
+      "used_by": [
+        "view_promotion",
+        "select_promotion",
+        "promotion_dismiss"
+      ],
+      "phase_added": 3,
+      "notes": "GA4 promotion parameter."
+    },
+    "cta_destination": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Route template the CTA leads to",
+      "used_by": [
+        "upgrade_cta_click"
+      ],
+      "phase_added": 1,
+      "notes": "Useful when one limit message offers more than one upgrade path."
+    },
+    "cta_id": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Fixed list per home component, e.g. continue_test, browse_tests, upload_score_report, build_plan_from_scratch, study_plan_due, view_assignments, goal_video, goal_event, study_guide, getting_started_item",
+      "used_by": [
+        "home_cta_click"
+      ],
+      "phase_added": 3,
+      "notes": "List to confirm (P3-D3)."
+    },
+    "cta_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "signin, signup",
+      "used_by": [
+        "sign_up_prompt_click"
+      ],
+      "phase_added": 1
+    },
+    "currency": {
+      "type": "string",
+      "register": "Built-in",
+      "allowed_values": "USD",
+      "used_by": [
+        "add_to_cart",
+        "remove_from_cart",
+        "view_cart",
+        "begin_checkout",
+        "purchase",
+        "refund"
+      ],
+      "phase_added": 6,
+      "notes": "GA4 ecommerce field."
+    },
+    "days_ahead": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Days from today to the chosen session date",
+      "used_by": [
+        "session_slot_select"
+      ],
+      "phase_added": 7
+    },
+    "days_available": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Days per week with availability",
+      "used_by": [
+        "availability_update"
+      ],
+      "phase_added": 7
+    },
+    "days_until_due": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Days from now to the assignment due date; negative when overdue",
+      "used_by": [
+        "assignment_open"
+      ],
+      "phase_added": 3
+    },
+    "days_until_test": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Days from now to the test date at the time it was set",
+      "used_by": [
+        "goal_set"
+      ],
+      "phase_added": 3,
+      "notes": "Never the date itself."
+    },
+    "description": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Error code or HTTP status class, never a message; max 100 chars",
+      "used_by": [
+        "exception"
+      ],
+      "phase_added": 1,
+      "notes": "Keep it to codes so values stay low-cardinality and free of personal data."
+    },
+    "destination_template": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Route template of the nav target",
+      "used_by": [
+        "navigation_click",
+        "subtask_link_click",
+        "hub_card_click",
+        "home_cta_click"
+      ],
+      "phase_added": 1
+    },
+    "difficulty": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "all, easy, medium, hard",
+      "used_by": [
+        "test_generate"
+      ],
+      "phase_added": 2
+    },
+    "discount_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "percentage, fixed_amount, time_limited_access",
+      "used_by": [
+        "coupon_apply"
+      ],
+      "phase_added": 6
+    },
+    "duration_sec": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Seconds spent on the question, from durationMs",
+      "used_by": [
+        "question_answer"
+      ],
+      "phase_added": 2
+    },
+    "edit_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "task_create, task_update, task_delete, status_change, subtask_toggle",
+      "used_by": [
+        "student_plan_edit"
+      ],
+      "phase_added": 7
+    },
+    "email_segment": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "my_students, connected, watched_videos, invited_connected",
+      "used_by": [
+        "tutor_email_send"
+      ],
+      "phase_added": 7,
+      "notes": "Segment key, not recipient data."
+    },
+    "enabled": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when turned on",
+      "used_by": [
+        "notification_pref_change"
+      ],
+      "phase_added": 8
+    },
+    "endpoint_template": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "API path with IDs replaced by :id",
+      "used_by": [
+        "limit_hit",
+        "content_block",
+        "exception"
+      ],
+      "phase_added": 1,
+      "notes": "Replacing IDs is done once, in the wrapper, so no event can leak a raw ID."
+    },
+    "entry_point": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "header (donations, Phase 6); profile, my_students, connections, messages_page (conversations, Phase 8)",
+      "used_by": [
+        "donation_open",
+        "conversation_start"
+      ],
+      "phase_added": 4
+    },
+    "error_code": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Firebase auth code (e.g. auth/wrong-password), HTTP status, or API error code. Never a message.",
+      "used_by": [
+        "auth_error",
+        "study_plan_generate_error",
+        "ai_request",
+        "checkout_session_error"
+      ],
+      "phase_added": 1,
+      "notes": "Codes, never messages."
+    },
+    "exam_category": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Top-level exam category slug, e.g. sat, act, ielts",
+      "used_by": [
+        "test_start",
+        "test_complete",
+        "exam_category_select"
+      ],
+      "phase_added": 2,
+      "notes": "Source to confirm (P2-D2)."
+    },
+    "existing_account": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true, false",
+      "used_by": [
+        "invitation_accept"
+      ],
+      "phase_added": 1
+    },
+    "faq_id": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "FAQ record ID",
+      "used_by": [
+        "faq_open"
+      ],
+      "phase_added": 8
+    },
+    "fatal": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true for render crashes, false for API errors",
+      "used_by": [
+        "exception"
+      ],
+      "phase_added": 1
+    },
+    "favorited": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when favorited",
+      "used_by": [
+        "content_favorite"
+      ],
+      "phase_added": 5
+    },
+    "feature_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Server-supplied feature key from the limit payload",
+      "used_by": [
+        "limit_hit"
+      ],
+      "phase_added": 1,
+      "notes": "Supplied by the server's limit response, so it stays consistent with billing."
+    },
+    "filter_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "category, date, price, level, location, other",
+      "used_by": [
+        "catalog_filter_apply"
+      ],
+      "phase_added": 5,
+      "notes": "Never the filter value."
+    },
+    "followed": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when followed",
+      "used_by": [
+        "space_follow"
+      ],
+      "phase_added": 8
+    },
+    "from_plan": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "free, monthly, yearly, time_limited",
+      "used_by": [
+        "subscription_change"
+      ],
+      "phase_added": 6
+    },
+    "from_status": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "todo, in_progress, completed",
+      "used_by": [
+        "task_status_change"
+      ],
+      "phase_added": 3
+    },
+    "gated_action": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Server-supplied action key from the trial lock payload",
+      "used_by": [
+        "limit_hit"
+      ],
+      "phase_added": 1
+    },
+    "goal_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "goal_score, test_date, current_score",
+      "used_by": [
+        "goal_set"
+      ],
+      "phase_added": 3
+    },
+    "has_due_date": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when a due date is set",
+      "used_by": [
+        "test_assign"
+      ],
+      "phase_added": 7
+    },
+    "has_invitation": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true, false",
+      "used_by": [
+        "role_select"
+      ],
+      "phase_added": 1
+    },
+    "has_media": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when the post includes an image or video",
+      "used_by": [
+        "post_create"
+      ],
+      "phase_added": 8
+    },
+    "has_plan": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when the user has at least one study plan",
+      "used_by": [
+        "study_session_start_click"
+      ],
+      "phase_added": 3
+    },
+    "has_referral": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true, false",
+      "used_by": [
+        "role_select"
+      ],
+      "phase_added": 1,
+      "notes": "Sent instead of the referral code itself."
+    },
+    "hours_per_week": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Available hours per week",
+      "used_by": [
+        "availability_update"
+      ],
+      "phase_added": 7
+    },
+    "http_status": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "HTTP status code, 0 for network failure",
+      "used_by": [
+        "exception"
+      ],
+      "phase_added": 1
+    },
+    "hub_id": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Hub id from the hub config, e.g. question-bank-hub",
+      "used_by": [
+        "hub_card_click"
+      ],
+      "phase_added": 3
+    },
+    "input_chars": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Length of the user's input in characters",
+      "used_by": [
+        "ai_request"
+      ],
+      "phase_added": 4,
+      "notes": "A length only; the input text is never sent."
+    },
+    "insight_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "tutortube_analytics, sales, student_metrics; contacts (Phase 8)",
+      "used_by": [
+        "tutor_insights_view"
+      ],
+      "phase_added": 7
+    },
+    "invitation_valid": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true, false",
+      "used_by": [
+        "invitation_view"
+      ],
+      "phase_added": 1
+    },
+    "invitee_role": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "student, parent, tutor",
+      "used_by": [
+        "invitation_send",
+        "invitation_cancel"
+      ],
+      "phase_added": 7
+    },
+    "inviter_role": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "tutor, parent, admin",
+      "used_by": [
+        "sign_up",
+        "invitation_view",
+        "invitation_accept",
+        "invitation_decline"
+      ],
+      "phase_added": 1,
+      "notes": "Shows which side of the marketplace drives invitations."
+    },
+    "is_cleared": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when a goal is set to empty",
+      "used_by": [
+        "goal_set"
+      ],
+      "phase_added": 3
+    },
+    "is_correct": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true, false",
+      "used_by": [
+        "review_question_open",
+        "tutorial_question_answer"
+      ],
+      "phase_added": 2,
+      "notes": "Only where correctness is known."
+    },
+    "is_first_message": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true for the first message in a support ticket",
+      "used_by": [
+        "support_message_send"
+      ],
+      "phase_added": 8
+    },
+    "is_overdue": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true, false",
+      "used_by": [
+        "assignment_open"
+      ],
+      "phase_added": 3
+    },
+    "is_public_view": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when rendered by a public or public content route",
+      "used_by": [
+        "page_view"
+      ],
+      "phase_added": 1
+    },
+    "is_resend": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true for a resend",
+      "used_by": [
+        "invitation_send"
+      ],
+      "phase_added": 7
+    },
+    "is_update": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when editing an existing review",
+      "used_by": [
+        "course_review_submit"
+      ],
+      "phase_added": 5
+    },
+    "item_list_name": {
+      "type": "string",
+      "register": "Built-in",
+      "allowed_values": "courses_grid, my_courses, classes_hub, calendar, resources, home_featured_classes, home_events, home_coming_up, search_results; tutor_plans (Phase 6)",
+      "used_by": [
+        "view_item_list",
+        "select_item"
+      ],
+      "phase_added": 5,
+      "notes": "GA4 ecommerce field."
+    },
+    "items": {
+      "type": "array",
+      "register": "Built-in",
+      "allowed_values": "Item objects; see the Item Schema tab",
+      "used_by": [
+        "view_item_list",
+        "select_item",
+        "view_item",
+        "add_to_cart",
+        "remove_from_cart",
+        "view_cart",
+        "begin_checkout",
+        "purchase",
+        "refund",
+        "course_enroll"
+      ],
+      "phase_added": 5,
+      "notes": "GA4 ecommerce field. Item fields use GA4's built-in item dimensions."
+    },
+    "latency_ms": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Client-measured time from request to response",
+      "used_by": [
+        "ai_request"
+      ],
+      "phase_added": 4,
+      "notes": "Compare against the p95 targets: 3s conversational, 500ms embedded."
+    },
+    "launch_source": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "launcher, category",
+      "used_by": [
+        "vocab_session_start"
+      ],
+      "phase_added": 2
+    },
+    "lead_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "tutor_request, public_test",
+      "used_by": [
+        "generate_lead"
+      ],
+      "phase_added": 1,
+      "notes": "Extend this list rather than creating new lead events."
+    },
+    "lesson_number": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "1-based lesson position in the course",
+      "used_by": [
+        "course_lesson_complete"
+      ],
+      "phase_added": 5
+    },
+    "limit_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "trial_lock, subscription_limit, ai_token_limit, ai_daily_limit (Phase 4)",
+      "used_by": [
+        "limit_hit",
+        "upgrade_cta_click"
+      ],
+      "phase_added": 1,
+      "notes": "The main split for the upgrade funnel."
+    },
+    "link_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "website, apply",
+      "used_by": [
+        "outbound_link_click"
+      ],
+      "phase_added": 5
+    },
+    "list_name": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "search_results, test_list, tutorial_category, tutorials_hub, home_featured_videos, colleges, scholarships, internships, applicant_profiles; tutor_directory, parent_directory, member_directory (Phase 8)",
+      "used_by": [
+        "select_content"
+      ],
+      "phase_added": 5,
+      "notes": "For select_content outside the ecommerce lists."
+    },
+    "list_position": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "1-based position in the result list",
+      "used_by": [
+        "select_content"
+      ],
+      "phase_added": 1,
+      "notes": "Register as a custom metric if needed in GA4, not a dimension."
+    },
+    "mark_source": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "test, saved_questions",
+      "used_by": [
+        "question_mark_for_review"
+      ],
+      "phase_added": 2
+    },
+    "marked": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when marked, false when unmarked",
+      "used_by": [
+        "question_mark_for_review"
+      ],
+      "phase_added": 2
+    },
+    "material_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "recording, file, link",
+      "used_by": [
+        "class_material_open",
+        "class_material_add"
+      ],
+      "phase_added": 5
+    },
+    "member_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Members in a new group",
+      "used_by": [
+        "conversation_start"
+      ],
+      "phase_added": 8
+    },
+    "message_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "text, image, file, audio, video, gif, meeting",
+      "used_by": [
+        "message_send"
+      ],
+      "phase_added": 8
+    },
+    "method": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "email, google on auth events; email on share",
+      "used_by": [
+        "sign_up_start",
+        "sign_up",
+        "login",
+        "auth_error",
+        "share"
+      ],
+      "phase_added": 1,
+      "notes": "Reused across auth and share events."
+    },
+    "metric_name": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "LCP, INP, CLS",
+      "used_by": [
+        "web_vitals"
+      ],
+      "phase_added": 1
+    },
+    "metric_rating": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "good, needs_improvement, poor",
+      "used_by": [
+        "web_vitals"
+      ],
+      "phase_added": 1,
+      "notes": "Thresholds from the web-vitals library."
+    },
+    "metric_value": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "LCP and INP in ms; CLS x 1000",
+      "used_by": [
+        "web_vitals"
+      ],
+      "phase_added": 1,
+      "notes": "Report p75, not the mean."
+    },
+    "minutes_to_start": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Minutes until the session starts; negative after start",
+      "used_by": [
+        "live_session_join"
+      ],
+      "phase_added": 5
+    },
+    "module_number": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "1-based module index within the test",
+      "used_by": [
+        "test_module_start"
+      ],
+      "phase_added": 2,
+      "notes": "Never the module title text."
+    },
+    "nav_item_id": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Item id from the sidebar config",
+      "used_by": [
+        "navigation_click"
+      ],
+      "phase_added": 1,
+      "notes": "From the navigation config, never the label text."
+    },
+    "nav_section_id": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Section id from the sidebar config",
+      "used_by": [
+        "navigation_click"
+      ],
+      "phase_added": 1
+    },
+    "notification_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "NotificationType enum value, e.g. newMessage, postComment, tutorSessionBooked",
+      "used_by": [
+        "notification_open",
+        "notification_pref_change"
+      ],
+      "phase_added": 8,
+      "notes": "36 values; keep in sync with shared/types/notification.types.ts."
+    },
+    "only_new_questions": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true, false",
+      "used_by": [
+        "test_generate"
+      ],
+      "phase_added": 2
+    },
+    "output_chars": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Length of the generated output in characters",
+      "used_by": [
+        "ai_request"
+      ],
+      "phase_added": 4
+    },
+    "output_items": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Items generated, e.g. ideas or questions",
+      "used_by": [
+        "ai_request"
+      ],
+      "phase_added": 4
+    },
+    "plan_source": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "test_result, scratch, score_report",
+      "used_by": [
+        "study_plan_generate",
+        "study_plan_generate_error",
+        "study_plan_open",
+        "study_plan_delete"
+      ],
+      "phase_added": 3
+    },
+    "plan_weeks": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Plan length in weeks",
+      "used_by": [
+        "study_plan_generate",
+        "study_plan_open"
+      ],
+      "phase_added": 3
+    },
+    "post_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "text, image, video, link, poll",
+      "used_by": [
+        "post_create"
+      ],
+      "phase_added": 8
+    },
+    "previous_exam_category": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Exam category slug before the change",
+      "used_by": [
+        "exam_category_select"
+      ],
+      "phase_added": 3
+    },
+    "profile_role": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "student, parent, tutor",
+      "used_by": [
+        "content_view",
+        "connection_request_send"
+      ],
+      "phase_added": 8,
+      "notes": "Role of the profile viewed or the person asked."
+    },
+    "profile_section": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "about, education, experience, rates, availability, photo, other",
+      "used_by": [
+        "profile_update"
+      ],
+      "phase_added": 8
+    },
+    "promotion_id": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Promo banner id, or book_demo",
+      "used_by": [
+        "view_promotion",
+        "select_promotion",
+        "promotion_dismiss"
+      ],
+      "phase_added": 3,
+      "notes": "GA4 promotion parameter."
+    },
+    "promotion_name": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Promo banner title as configured by admins",
+      "used_by": [
+        "view_promotion",
+        "select_promotion"
+      ],
+      "phase_added": 3,
+      "notes": "GA4 promotion parameter. Admin-written, not user text."
+    },
+    "published": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when published, false when unpublished",
+      "used_by": [
+        "content_publish"
+      ],
+      "phase_added": 7
+    },
+    "question_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Questions requested for a generated test",
+      "used_by": [
+        "test_generate"
+      ],
+      "phase_added": 2
+    },
+    "question_number": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "Question number shown to the student",
+      "used_by": [
+        "question_answer",
+        "test_tool_use",
+        "question_mark_for_review"
+      ],
+      "phase_added": 2
+    },
+    "rating": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "1 to 5",
+      "used_by": [
+        "course_review_submit",
+        "feedback_submit"
+      ],
+      "phase_added": 5
+    },
+    "reaction_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "like, upvote",
+      "used_by": [
+        "post_react"
+      ],
+      "phase_added": 8
+    },
+    "recipient_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Recipients in the send",
+      "used_by": [
+        "tutor_email_send"
+      ],
+      "phase_added": 7
+    },
+    "requires_verification": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when the backend sends the user to email verification",
+      "used_by": [
+        "sign_up"
+      ],
+      "phase_added": 1
+    },
+    "restart_source": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "resume_dialog, results",
+      "used_by": [
+        "test_restart"
+      ],
+      "phase_added": 2
+    },
+    "result_age_days": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Days since the result was generated",
+      "used_by": [
+        "ai_history_open"
+      ],
+      "phase_added": 4
+    },
+    "results_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Total results returned",
+      "used_by": [
+        "view_search_results"
+      ],
+      "phase_added": 1,
+      "notes": "Zero-result searches are the most useful filter."
+    },
+    "results_source": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "just_completed, revisit",
+      "used_by": [
+        "test_results_view"
+      ],
+      "phase_added": 2
+    },
+    "return_status": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "success, cancel",
+      "used_by": [
+        "checkout_return"
+      ],
+      "phase_added": 6
+    },
+    "review_source": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "test_results, my_mistakes, saved_questions",
+      "used_by": [
+        "review_question_open"
+      ],
+      "phase_added": 2
+    },
+    "score": {
+      "type": "number",
+      "register": "Metric",
+      "allowed_values": "Score from the API result",
+      "used_by": [
+        "test_complete"
+      ],
+      "phase_added": 2,
+      "notes": "Scale differs by test type."
+    },
+    "score_value": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Goal or current score entered",
+      "used_by": [
+        "goal_set"
+      ],
+      "phase_added": 3
+    },
+    "scroll_percent": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "50, 90",
+      "used_by": [
+        "scroll_milestone"
+      ],
+      "phase_added": 1
+    },
+    "search_origin": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "header, home, search_results; Phase 5 adds courses, classes, calendar, resources, tutorials, colleges, scholarships, internships, applicant_profiles",
+      "used_by": [
+        "search"
+      ],
+      "phase_added": 1
+    },
+    "search_term": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "Trimmed, lowercased, max 100 chars",
+      "used_by": [
+        "search",
+        "view_search_results"
+      ],
+      "phase_added": 1,
+      "notes": "Only ever sent on search events, never in URLs."
+    },
+    "section_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Sections in the test",
+      "used_by": [
+        "test_start"
+      ],
+      "phase_added": 2
+    },
+    "section_number": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "Section number within the test",
+      "used_by": [
+        "question_answer",
+        "test_module_start"
+      ],
+      "phase_added": 2
+    },
+    "selected_role": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "student, parent, tutor",
+      "used_by": [
+        "role_select"
+      ],
+      "phase_added": 1
+    },
+    "shared": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true when shared",
+      "used_by": [
+        "session_note_share"
+      ],
+      "phase_added": 7
+    },
+    "signup_source": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "organic, referral, invitation",
+      "used_by": [
+        "sign_up"
+      ],
+      "phase_added": 1,
+      "notes": "Attributes every account to how it arrived."
+    },
+    "skipped": {
+      "type": "boolean",
+      "register": "Optional",
+      "allowed_values": "true if the user skipped class selection",
+      "used_by": [
+        "post_invite_class_select"
+      ],
+      "phase_added": 1
+    },
+    "step_name": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "confidence, test_date, study_days, goal_score",
+      "used_by": [
+        "study_plan_wizard_step"
+      ],
+      "phase_added": 3
+    },
+    "step_number": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "1 to 4",
+      "used_by": [
+        "study_plan_wizard_step"
+      ],
+      "phase_added": 3
+    },
+    "study_days_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Study days per week chosen in the wizard",
+      "used_by": [
+        "study_plan_generate"
+      ],
+      "phase_added": 3
+    },
+    "subscription_type": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "tutor_plan, class",
+      "used_by": [
+        "subscription_change"
+      ],
+      "phase_added": 6
+    },
+    "subtask_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "question_bank, predicted_questions, tutorial_videos, personal",
+      "used_by": [
+        "subtask_complete",
+        "subtask_link_click"
+      ],
+      "phase_added": 3
+    },
+    "surface": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "feed, space, tutor_community, event, messages_page, chat_window",
+      "used_by": [
+        "post_create",
+        "post_react",
+        "post_share",
+        "poll_vote",
+        "comment_post",
+        "message_send"
+      ],
+      "phase_added": 8,
+      "notes": "Where community and messaging activity happens."
+    },
+    "task_source": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "study_plan, personal",
+      "used_by": [
+        "task_create",
+        "task_status_change",
+        "subtask_complete",
+        "task_delete"
+      ],
+      "phase_added": 3
+    },
+    "task_week": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "Plan week the task belongs to",
+      "used_by": [
+        "task_status_change"
+      ],
+      "phase_added": 3
+    },
+    "template_id": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "Template key from email/templates.ts, or custom",
+      "used_by": [
+        "tutor_email_send"
+      ],
+      "phase_added": 7
+    },
+    "test_id": {
+      "type": "string",
+      "register": "No (ID)",
+      "allowed_values": "Backend test ID",
+      "used_by": [
+        "generate_lead",
+        "test_generate",
+        "test_start",
+        "test_resume",
+        "test_restart",
+        "question_answer",
+        "test_module_start",
+        "test_pause",
+        "test_complete",
+        "test_tool_use",
+        "test_results_view",
+        "study_plan_cta_click",
+        "assignment_open",
+        "test_assign"
+      ],
+      "phase_added": 1,
+      "notes": "Warehouse only. Introduced in Phase 1 on generate_lead; used throughout later phases."
+    },
+    "test_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "practice_test, diagnostic, question_bank, predicted_test, predicted_question, public_test",
+      "used_by": [
+        "select_content",
+        "test_generate",
+        "test_start",
+        "test_resume",
+        "test_restart",
+        "question_answer",
+        "test_module_start",
+        "test_pause",
+        "test_complete",
+        "test_tool_use",
+        "question_mark_for_review",
+        "test_results_view",
+        "review_question_open",
+        "mistake_dismiss",
+        "study_plan_cta_click",
+        "study_plan_generate",
+        "student_work_view",
+        "test_assign"
+      ],
+      "phase_added": 2,
+      "notes": "Normalized in the wrapper; the code currently passes both 'predicted' and 'predicted_test'."
+    },
+    "to_plan": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "free, monthly, yearly, time_limited, none",
+      "used_by": [
+        "subscription_change"
+      ],
+      "phase_added": 6
+    },
+    "to_status": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "todo, in_progress, completed",
+      "used_by": [
+        "task_status_change"
+      ],
+      "phase_added": 3
+    },
+    "tool_name": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "drawing_board, focus_mode, scratch_mode, highlighter, ai_hint, ask_tutor, question_note",
+      "used_by": [
+        "test_tool_use"
+      ],
+      "phase_added": 2
+    },
+    "tool_state": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "on, off (toggles only)",
+      "used_by": [
+        "test_tool_use"
+      ],
+      "phase_added": 2
+    },
+    "total_questions": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Questions in the test",
+      "used_by": [
+        "test_start",
+        "test_resume",
+        "test_pause",
+        "test_complete",
+        "test_results_view"
+      ],
+      "phase_added": 2
+    },
+    "transaction_id": {
+      "type": "string",
+      "register": "Built-in",
+      "allowed_values": "Stripe checkout session or payment intent ID",
+      "used_by": [
+        "purchase",
+        "refund"
+      ],
+      "phase_added": 6,
+      "notes": "GA4 ecommerce field; server-side only."
+    },
+    "turn_number": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "User message number within a conversation",
+      "used_by": [
+        "ai_request"
+      ],
+      "phase_added": 4,
+      "notes": "Chat features only."
+    },
+    "unread_count": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Unread notifications when the dropdown opened",
+      "used_by": [
+        "notifications_dropdown_open"
+      ],
+      "phase_added": 8
+    },
+    "value": {
+      "type": "number",
+      "register": "Built-in",
+      "allowed_values": "Order value in USD",
+      "used_by": [
+        "add_to_cart",
+        "remove_from_cart",
+        "view_cart",
+        "begin_checkout",
+        "purchase",
+        "refund"
+      ],
+      "phase_added": 6,
+      "notes": "GA4 ecommerce field."
+    },
+    "verification_mode": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "link, manual_code",
+      "used_by": [
+        "email_verify"
+      ],
+      "phase_added": 1
+    },
+    "video_duration_sec": {
+      "type": "integer",
+      "register": "Metric",
+      "allowed_values": "Video length in seconds",
+      "used_by": [
+        "video_start",
+        "video_progress",
+        "video_complete"
+      ],
+      "phase_added": 5
+    },
+    "video_percent": {
+      "type": "integer",
+      "register": "Optional",
+      "allowed_values": "25, 50, 75",
+      "used_by": [
+        "video_progress"
+      ],
+      "phase_added": 5,
+      "notes": "GA4 enhanced measurement parameter name."
+    },
+    "video_provider": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "uploaded, youtube, vimeo",
+      "used_by": [
+        "video_start",
+        "video_progress",
+        "video_complete"
+      ],
+      "phase_added": 5,
+      "notes": "GA4 enhanced measurement parameter name."
+    },
+    "viewed_scope": {
+      "type": "string",
+      "register": "Optional",
+      "allowed_values": "self, linked_student, all_students",
+      "used_by": [
+        "progress_report_view"
+      ],
+      "phase_added": 3
+    },
+    "work_type": {
+      "type": "string",
+      "register": "Yes",
+      "allowed_values": "test_review, mistakes_review, study_plan",
+      "used_by": [
+        "student_work_view"
+      ],
+      "phase_added": 7
+    }
+  },
+  "shared_context": [
+    {
+      "parameter": "event_id",
+      "value": "UUID v4, unique per push",
+      "source": "Wrapper",
+      "notes": "De-duplication in BigQuery and reconciliation with backend logs. Never a GA4 dimension."
+    },
+    {
+      "parameter": "schema_version",
+      "value": "Tracking plan version, currently 8.7",
+      "source": "Wrapper constant",
+      "notes": "Which plan version an event was collected under."
+    },
+    {
+      "parameter": "page_template",
+      "value": "Matched route pattern, e.g. /tests/:testId/take",
+      "source": "matchRoutes() against config/routes.ts",
+      "notes": "Route pattern; only 24 pages set a Helmet title, and URLs carry IDs."
+    },
+    {
+      "parameter": "content_group",
+      "value": "account, home, practice, planning, learn, ai_tools, community, tutor_tools, settings, public_content, embed",
+      "source": "Route prefix map in the wrapper",
+      "notes": "Maps to GA4's built-in Content group dimension; no custom slot used. Unmapped routes send nothing."
+    },
+    {
+      "parameter": "user_role",
+      "value": "student, parent, tutor, admin, anonymous",
+      "source": "authStore, normalized",
+      "notes": "Role at event time, including anonymous. Normalized from both enums (0 admin, 1 student, 2 tutor, 3 parent)."
+    },
+    {
+      "parameter": "app_version",
+      "value": "VITE_APP_VERSION",
+      "source": "Build env",
+      "notes": "Ties data changes to a release."
+    },
+    {
+      "parameter": "environment",
+      "value": "development, staging, production",
+      "source": "Vite build mode",
+      "notes": "Production reports filter to environment = production."
+    },
+    {
+      "parameter": "traffic_type",
+      "value": "internal for admin users, otherwise omitted",
+      "source": "authStore",
+      "notes": "Feeds GA4's Internal Traffic data filter (G2)."
+    }
+  ],
+  "user_properties": [
+    {
+      "property": "user_id (GA4 reserved field)",
+      "values": "Opaque backend user ID",
+      "set_for": "Authenticated users only",
+      "source": "authStore.user",
+      "notes": "Never email or name.",
+      "phase": 1
+    },
+    {
+      "property": "user_role",
+      "values": "student, parent, tutor, admin",
+      "set_for": "All authenticated users",
+      "source": "authStore.user, normalized (W3)",
+      "notes": "Current role; the event parameter of the same name records role at event time.",
+      "phase": 1
+    },
+    {
+      "property": "tutor_plan_status",
+      "values": "trial, free, monthly, yearly, time_limited, expired",
+      "set_for": "Tutors only",
+      "source": "useTutorOnFreeTrial, useTutorExpired, subscription state",
+      "notes": "Key cut for the upgrade funnel.",
+      "phase": 1
+    },
+    {
+      "property": "tutor_verified",
+      "values": "true, false",
+      "set_for": "Tutors only",
+      "source": "Tutor verification gate state",
+      "notes": "Verification gates tutor actions.",
+      "phase": 1
+    },
+    {
+      "property": "primary_exam",
+      "values": "Exam category slug, e.g. sat, act, ielts",
+      "set_for": "Students and parents",
+      "source": "useTestCategoriesStore selected category",
+      "notes": "Per device today: the selection lives in localStorage (P3-D2).",
+      "phase": 3
+    },
+    {
+      "property": "has_linked_tutor",
+      "values": "true, false",
+      "set_for": "Students and parents",
+      "source": "useMyTutors().hasTutors (already loaded for the sidebar)",
+      "notes": "Separates marketplace students from self-study students in every report.",
+      "phase": 3
+    }
+  ],
+  "item_schema": [
+    {
+      "field": "item_id",
+      "value": "Content ID of the course, class, event, or resource; plan ID for tutor plans; donation for donations (Phase 6)",
+      "required": "Required",
+      "notes": ""
+    },
+    {
+      "field": "item_name",
+      "value": "Title as published by the tutor or admin",
+      "required": "Required",
+      "notes": "Published content titles only; never user input."
+    },
+    {
+      "field": "item_category",
+      "value": "course, class, event, resource; tutor_plan, donation (Phase 6); tutor_session (Phase 7)",
+      "required": "Required",
+      "notes": "Same values as content_type for content items. Phase 6 adds tutor plans and donations, Phase 7 tutor sessions, so every checkout uses one item format."
+    },
+    {
+      "field": "item_category2",
+      "value": "Exam category slug, e.g. sat, act; or subject",
+      "required": "When known",
+      "notes": ""
+    },
+    {
+      "field": "item_brand",
+      "value": "platform, tutor",
+      "required": "Required",
+      "notes": "Who created the item. Uses a built-in field instead of a custom dimension."
+    },
+    {
+      "field": "item_variant",
+      "value": "free, one_time, subscription, subscribers_only; monthly, yearly, time_limited for tutor plans (Phase 6)",
+      "required": "Required",
+      "notes": "Pricing model."
+    },
+    {
+      "field": "price",
+      "value": "Unit price in USD; 0 for free",
+      "required": "Required",
+      "notes": ""
+    },
+    {
+      "field": "quantity",
+      "value": "1",
+      "required": "Required in Phase 6",
+      "notes": ""
+    },
+    {
+      "field": "index",
+      "value": "0-based position in the list",
+      "required": "Lists only",
+      "notes": ""
+    },
+    {
+      "field": "item_list_name",
+      "value": "List the item was shown in (see Parameter Reference)",
+      "required": "Lists only",
+      "notes": ""
+    },
+    {
+      "field": "currency (event level)",
+      "value": "USD",
+      "required": "When price is sent",
+      "notes": "Set on the ecommerce object, not the item."
+    }
+  ],
+  "route_mapping": {
+    "account": [
+      "/signin",
+      "/role-selection",
+      "/signup",
+      "/tutor-request",
+      "/invitation",
+      "/reset-password",
+      "/verify-email",
+      "/select-class",
+      "/unsubscribe"
+    ],
+    "home": [
+      "/",
+      "/dashboard",
+      "/start-here",
+      "/c/:categorySlug",
+      "/my-assignments",
+      "/search"
+    ],
+    "practice": [
+      "/tests",
+      "/tests/:testId/take",
+      "/diagnostic-test",
+      "/diagnostic-test/:testId/take",
+      "/question-bank/categories",
+      "/question-bank/test/:testId",
+      "/question-bank/questions",
+      "/challenge-questions",
+      "/predicted-questions",
+      "/predicted-questions/tests",
+      "/predicted-questions/test/:testId",
+      "/predicted-tests",
+      "/predicted-tests/test/:testId",
+      "/vocabulary",
+      "/vocabulary/categories",
+      "/vocabulary/launcher",
+      "/vocabulary/session/:id",
+      "/score-calculator",
+      "/my-mistakes",
+      "/my-mistakes/categories/:categoryId",
+      "/saved-questions",
+      "/saved-questions/categories/:categoryId",
+      "/t/:testId",
+      "/question-bank-hub",
+      "/practice-tests-hub"
+    ],
+    "planning": [
+      "/study-plan",
+      "/study-plan/list",
+      "/study-plan/source/:source/:studyPlanId",
+      "/study-plan/source/:source/:studyPlanId/:testType",
+      "/study-plan/:testProgressId",
+      "/study-plan/:testProgressId/:testType",
+      "/tasks"
+    ],
+    "learn": [
+      "/tutorial-bank",
+      "/tutorial-bank/category/:categoryId",
+      "/tutorial-bank/tutorial/:categoryId/:tutorialId",
+      "/courses",
+      "/courses/my-courses",
+      "/courses/course/:id",
+      "/courses/learn/:courseId",
+      "/courses/cart/review",
+      "/courses/cart/confirmation",
+      "/courses/payment/success",
+      "/courses/payment/cancel",
+      "/classes",
+      "/classes/:id",
+      "/calendar",
+      "/calendar/event/:id",
+      "/resources",
+      "/resources/:id",
+      "/colleges",
+      "/colleges/:id",
+      "/scholarships",
+      "/scholarships/:id",
+      "/internships",
+      "/internships/:id",
+      "/applicant-profiles",
+      "/applicant-profiles/:id",
+      "/essay-ideas",
+      "/essay-ideas/list",
+      "/essay-ideas/:id",
+      "/essay-editor",
+      "/essay-editor/list",
+      "/essay-editor/:id",
+      "/recommendation-letter",
+      "/faqs",
+      "/questions",
+      "/tutorials-hub",
+      "/college-admissions-hub"
+    ],
+    "ai_tools": [
+      "/ai-prompts",
+      "/course-plans"
+    ],
+    "community": [
+      "/community/connections",
+      "/community/profile",
+      "/community/profile/:userId",
+      "/community/contacts",
+      "/community/members",
+      "/community/tutors",
+      "/community/parents",
+      "/community/feed",
+      "/community/post/:id",
+      "/communities/self",
+      "/communities/:tutorId",
+      "/my-communities",
+      "/my-tutors",
+      "/spaces",
+      "/spaces/:spaceId",
+      "/feed",
+      "/posts/:postId",
+      "/messages",
+      "/support",
+      "/community-hub"
+    ],
+    "tutor_tools": [
+      "/test-bank/my-bank",
+      "/test-bank/my-bank/:testId/edit",
+      "/question-bank/my-bank",
+      "/question-bank/my-bank/create",
+      "/question-bank/my-bank/edit/:itemId",
+      "/tutortube",
+      "/tutortube/:videoId/analytics",
+      "/email",
+      "/my-students",
+      "/my-classes",
+      "/payments/sells",
+      "/courses/create",
+      "/courses/edit/:courseId",
+      "/students-progress-hub"
+    ],
+    "settings": [
+      "/settings/account",
+      "/settings/availability",
+      "/settings/videos",
+      "/settings/notifications",
+      "/settings/apps",
+      "/settings/plans",
+      "/settings/billing",
+      "/settings/feedback",
+      "/settings/tutor-invitations",
+      "/settings/student-invitations",
+      "/settings/connected-apps",
+      "/settings/parent-student-invitation",
+      "/settings/subscription-success",
+      "/settings/subscription-cancel",
+      "/settings/subscription-change/:action/:subscriptionId",
+      "/settings/subscription-cancel-confirm/:subscriptionId",
+      "/settings/subscription-downgrade-free-confirm/:subscriptionId",
+      "/settings/subscription-downgrade-monthly-confirm/:subscriptionId",
+      "/settings/subscription-change/cancel/success",
+      "/settings/subscription-change/downgrade-free/success",
+      "/settings/subscription-change/downgrade-monthly/success",
+      "/settings/subscription-change/:action/success",
+      "/settings/subscription-history",
+      "/settings/subscription-upgrade-yearly-confirm/:subscriptionId",
+      "/settings/subscription-upgrade-yearly/success",
+      "/donation-success",
+      "/donation-cancel",
+      "/payments/orders"
+    ],
+    "embed": [
+      "/embed/tutorial/:id",
+      "/embed/class/:id",
+      "/embed/event/:id",
+      "/embed/course/:id",
+      "/embed/test/:id"
+    ]
+  },
+  "unmapped_routes": [
+    "/ecommerce/customers",
+    "/ecommerce/orders",
+    "/ecommerce/invoices",
+    "/ecommerce/shop",
+    "/ecommerce/shop-2",
+    "/ecommerce/product",
+    "/ecommerce/cart",
+    "/ecommerce/cart-2",
+    "/ecommerce/cart-3",
+    "/ecommerce/pay",
+    "/finance/cards",
+    "/finance/transactions",
+    "/finance/transaction-details",
+    "/job/job-listing",
+    "/job/job-post",
+    "/job/company-profile",
+    "/component/button",
+    "/component/form",
+    "/component/dropdown",
+    "/component/alert",
+    "/component/modal",
+    "/component/pagination",
+    "/component/tabs",
+    "/component/breadcrumb",
+    "/component/badge",
+    "/component/avatar",
+    "/component/tooltip",
+    "/component/accordion",
+    "/component/icons",
+    "/utility/changelog",
+    "/utility/roadmap",
+    "/utility/faqs",
+    "/utility/empty-state",
+    "/community/profile2",
+    "/community/users-tabs",
+    "/community/users-tiles",
+    "/community/feed2",
+    "/community/forum",
+    "/community/forum-post",
+    "/community/meetups",
+    "/community/meetups-post",
+    "/dashboard/analytics",
+    "/dashboard/fintech",
+    "/messages2",
+    "/inbox",
+    "/campaigns",
+    "/onboarding-01",
+    "/onboarding-02",
+    "/onboarding-03",
+    "/onboarding-04",
+    "/platform-config",
+    "/settings/account-old",
+    "/courses/cart/payment",
+    "/404",
+    "/not-found"
+  ]
+}
